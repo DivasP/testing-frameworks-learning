@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.centre'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+String junitVersion='5.7.0-M1'
+
+dependencies {
+    compile(
+            [group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'],
+            [group: 'org.apache.commons', name: 'commons-lang3', version: '3.10']
+
+    )
+    testCompile(
+            [group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion],
+            [group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion],
+            [group: 'org.assertj', name: 'assertj-core', version: '3.16.0'],
+            [group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2']
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
